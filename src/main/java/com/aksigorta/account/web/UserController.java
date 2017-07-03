@@ -112,7 +112,7 @@ public class UserController {
 			JSONObject time = jsonObject.getJSONObject("dt");
 
 		} catch (JSONException exception) {
-			log.debug("Dýþtaki Try blogu patladý, dikkat etfrf");
+			log.debug("Dýþtaki Try blogu patladý, dikkat etfrfsas");
 		}
 
 		String city = sehir;
