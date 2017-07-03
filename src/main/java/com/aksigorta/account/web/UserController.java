@@ -84,8 +84,8 @@ public class UserController {
 	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET) // Spring-kütüphanesi-sayesinde-Session-yarattýk(3)
 	public String welcome(@ModelAttribute("username") String username, Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		User user = getUserData(authentication.getName());
-		model.addAttribute("user", user);
+		User user1 = getUserData(authentication.getName());
+		model.addAttribute("user", user1);
 		return "welcome";
 	}
 
