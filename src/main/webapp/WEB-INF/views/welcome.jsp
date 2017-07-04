@@ -42,7 +42,7 @@
 					|</Font> <a onclick="document.forms['logoutForm'].submit()">Logout</a>
 
 			</h2>
-			
+
 		</c:if>
 
 	</div>
@@ -137,11 +137,25 @@
 		</form>
 
 	</div>
+
 	<div align="center">
-				<font color="red" style="font-size: x-large;"> ${city} </Font><font color="white" style="font-size: x-large;"> ${weather_temp} </Font> <br>				
-				<font color="white" style="font-size: x-large;"> ${weather_humidity} </Font> <br>
-				<font color="white" style="font-size: x-large;"> ${city_time} </Font>
-			</div>
+	
+		<font color="red" style="font-size: x-large;"> ${part1.city} </Font> <br>
+	    <img src= "${imageurl}" >
+		<font color="white" style="font-size: x-large;"> ${part1.temp} </Font> <br>
+		<font color="white" style="font-size: x-large;">${part1.weatherDescription} </Font> <br> 
+		<font color="white" style="font-size: x-large;"> ${part1.humidity} </Font> <br>
+		<font color="black" style="font-size: x-large;"> ${part1.getDate()} </Font>
+	</div>
+	<div align="center">
+		<font color="white" style="font-size: x-large;"> ${part2List.get(0).temp} </Font> <img src= "${part2List.get(0).url}" ><font color="white" style="font-size: x-large;"> ${part2List.get(0).time} </Font> <br>    
+		<font color="white" style="font-size: x-large;"> ${part2List.get(1).temp} </Font> <img src= "${part2List.get(1).url}" ><font color="white" style="font-size: x-large;"> ${part2List.get(1).time} </Font> <br>
+		<font color="white" style="font-size: x-large;"> ${part2List.get(2).temp} </Font> <img src= "${part2List.get(2).url}" ><font color="white" style="font-size: x-large;"> ${part2List.get(2).time} </Font> <br>
+		<font color="white" style="font-size: x-large;"> ${part2List.get(3).temp} </Font> <img src= "${part2List.get(3).url}" ><font color="white" style="font-size: x-large;"> ${part2List.get(3).time} </Font> <br>
+		<font color="white" style="font-size: x-large;"> ${part2List.get(4).temp} </Font> <img src= "${part2List.get(4).url}" ><font color="white" style="font-size: x-large;"> ${part2List.get(4).time} </Font> <br>
+		<font color="white" style="font-size: x-large;"> ${part2List.get(5).temp} </Font> <img src= "${part2List.get(5).url}" ><font color="white" style="font-size: x-large;"> ${part2List.get(5).time} </Font> <br>
+		
+	</div>
 	<!-- /container -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
