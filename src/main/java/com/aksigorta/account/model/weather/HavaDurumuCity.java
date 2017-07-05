@@ -1,6 +1,5 @@
 package com.aksigorta.account.model.weather;
 
-import java.util.List;
 
 public class HavaDurumuCity {
 	private int id;

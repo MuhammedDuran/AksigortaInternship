@@ -2,7 +2,6 @@ package com.aksigorta.account.web;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,6 +33,9 @@ public class WeatherContoller {
 	private String imageurl;
 
 	private Logger log = LoggerFactory.getLogger(WeatherContoller.class);
+	private String Humidity_text;
+	private String Temp_text;
+    private String Celcius;
 
 	@RequestMapping(value = "/getCityTemp", method = RequestMethod.GET)
 	public String goToService(@RequestParam Map<String, String> params, Model model) {
@@ -47,6 +49,9 @@ public class WeatherContoller {
 			Gson gson = new GsonBuilder().create();
 			HavaDurumu havaDurumu = gson.fromJson(json, HavaDurumu.class);
 			model.addAttribute("part1", createCurrent(havaDurumu));
+			model.addAttribute("Celcius",Celcius);
+			model.addAttribute("humidity_text",Humidity_text);
+			model.addAttribute("Temp_text",Temp_text);
 			model.addAttribute("part2List", createHourly(havaDurumu));
 			model.addAttribute("imageurl", imageurl);
 
@@ -70,6 +75,9 @@ public class WeatherContoller {
 
 		part.setHumidity(havaDurumuDetay.getMain().getHumidity());
 		part.setIcon(havaDurumuDetay.getWeather().get(0).getIcon());
+		Humidity_text = "Nem : %" +  part.getTemp();
+		Temp_text = part.getTemp() + " °C";
+		Celcius = " °C";
 
 		imageurl = "http://openweathermap.org/img/w/" + part.getIcon() + ".png";
 

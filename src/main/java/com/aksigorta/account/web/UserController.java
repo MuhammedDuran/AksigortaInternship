@@ -50,15 +50,15 @@ public class UserController {
 	}
 
 	public User getUserData(@ModelAttribute("username") String username) {// (Session
-																			// için)
+																			// iï¿½in)
 		User user = userService.findByUsername(username);
 		return user;
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET) // ilk-buraya-giriyor-error-kontrolleri-yapýyor-arka-kütüphaneler-ile-denetlemeler-yapýyor.(1)
+	@RequestMapping(value = "/login", method = RequestMethod.GET) // ilk-buraya-giriyor-error-kontrolleri-yapÄ±yor-arka-kÃ¼tï¿½phaneler-ile-denetlemeler-yapï¿½yor.(1)
 	public String login(Model model, String error, String logout) {
 		if (error != null)
-			model.addAttribute("error", "Your username and password is invalid."); // Eðer-username-hatalýysa-kontrol-yap
+			model.addAttribute("error", "Your username and password is invalid."); // EÄŸer-username-hatalï¿½ysa-kontrol-yap
 
 		if (logout != null) // Logout'a-basarsa
 			model.addAttribute("error", "You have been logged out successfully.");
@@ -66,7 +66,7 @@ public class UserController {
 		return "login";
 	}
 
-	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET) // Spring-kütüphanesi-sayesinde-Session-yarattýk(3)
+	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET) // Spring-kï¿½tï¿½phanesi-sayesinde-Session-yarattï¿½k(3)
 	public String welcome(@ModelAttribute("username") String username, Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = getUserData(authentication.getName());
