@@ -42,7 +42,7 @@ public class JSONParser {
     }
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(
-          is, "iso-8859-1"), 8);
+          is, "UTF-8"), 8);
       StringBuilder sb = new StringBuilder();
       String line = null;
       while ((line = reader.readLine()) != null) {
@@ -54,7 +54,7 @@ public class JSONParser {
     } catch (Exception e) {
 
     }
-    // JSON'ý string olarak döndürüyoruz.
+    // JSON'ï¿½ string olarak dï¿½ndï¿½rï¿½yoruz.
     return json;
   }
 }

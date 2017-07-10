@@ -50,15 +50,15 @@ public class UserController {
 	}
 
 	public User getUserData(@ModelAttribute("username") String username) {// (Session
-																			// i�in)
+																			// için)
 		User user = userService.findByUsername(username);
 		return user;
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET) // ilk-buraya-giriyor-error-kontrolleri-yapıyor-arka-küt�phaneler-ile-denetlemeler-yap�yor.(1)
+	@RequestMapping(value = "/login", method = RequestMethod.GET) // ilk-buraya-giriyor-error-kontrolleri-yapıyor-arka-kütüphaneler-ile-denetlemeler-yapıyor.(1)
 	public String login(Model model, String error, String logout) {
 		if (error != null)
-			model.addAttribute("error", "Your username and password is invalid."); // Eğer-username-hatal�ysa-kontrol-yap
+			model.addAttribute("error", "Your username and password is invalid."); // Eğer-username-hatalıysa-kontrol-yap
 
 		if (logout != null) // Logout'a-basarsa
 			model.addAttribute("error", "You have been logged out successfully.");
@@ -66,7 +66,7 @@ public class UserController {
 		return "login";
 	}
 
-	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET) // Spring-k�t�phanesi-sayesinde-Session-yaratt�k(3)
+	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET) // Spring-kütüphanesi-sayesinde-Session-yarattık(3)
 	public String welcome(@ModelAttribute("username") String username, Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = getUserData(authentication.getName());
